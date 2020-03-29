@@ -1,0 +1,838 @@
+/*@import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|PT+Serif:400,700,400italic');
+*/
+
+:root {
+
+  --media-height: 100vh;
+  --media-width: 100vw;
+
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1440px;
+  --breakpoint-xxxl: 1800px;
+
+  --color-black: #000;
+  --color-white: #fff;
+  --color-ecc: #caa87a;
+
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --tds-line_height--large: 36px;
+
+  --asset-order: -1;
+  --callouts-width: 100%;
+  --mobile-callouts-width: 33%;
+  --cmp-callout-item: 1;
+  --cmp-callouts-transition-delay: .2s;
+  --cmp-speedometer-scale: .75;
+  --cmp-speedometer-duration: 1.733s;
+  --cmp-speedometer-time-increment: 0;
+  --cmp-speedometer-transition-property: transform;
+  --cmp-speedometer-transition-timing-function: cubic-bezier(.77,0,.175,1);
+  --cmp-speedometer-numbers-transition-timing-function: cubic-bezier(1,0,0,1);
+  --cmp-speedometer-numbers-height-desktop: 390px;
+  --cmp-speedometer-numbers-height-mobile: 310px;
+  --cmp-speedometer-number-offset-desktop: -39px;
+  --cmp-speedometer-number-offset-mobile: -31px;
+  --cmp-transition-duration--short: .5s;
+  --cmp-transition-property: opacity;
+  --cmp-transition-timing-function: cubic-bezier(.23,1,.32,1);
+  --cmp-speedometer-integer-translation: -20%;
+  --cmp-speedometer-fractional-translation: -29%;
+
+}
+
+@media (min-width: 768px) {
+  :root {
+    --cmp-speedometer-scale: .9;
+
+  }
+}
+
+@media (min-width: 992px) {
+  :root {
+    --cmp-speedometer-scale: .9;
+    
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --cmp-speedometer-scale: .9;
+    
+  }
+}
+
+@media (min-width: 1800px) {
+  :root {
+    --cmp-speedometer-scale: 1;
+    
+  }
+}
+
+/*
+My version of:
+- A Modern CSS Reset - https://dev.to/hankchizljaw/a-modern-css-reset-6p3
+- normalize.css - https://necolas.github.io/normalize.css/8.0.1/normalize.css
+- Bootstrap resets
+*/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Set core html defaults */
+html {
+  font-size: 75%;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+@media (min-width: 992px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 112.5%;
+  }
+}
+
+@media (min-width: 1800px) {
+  html {
+    font-size: 125%;
+  }
+}
+
+/* Set core body defaults */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-family: "Montserrat",sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-black);
+  text-align: left;
+  background-color: var(--color-white);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+/*
+html {
+  font-size: 16px;
+}
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+}
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 22px;
+  }
+}
+*/
+
+/* Render the `main` element consistently in IE. */
+main {
+  display: block;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body, h1, h2, h3, h4, h5, h6, p, ul[class], ol[class], li, figure, figcaption, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class], ol[class] {
+  list-style: none;
+}
+
+a {
+  text-decoration: none: 
+}
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+  border-style: none;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Add the correct font weight in Chrome, Edge, and Safari. */
+b, strong {
+  font-weight: bolder;
+}
+
+/* Add the correct font size in all browsers. */
+small {
+  font-size: 80%;
+}
+
+/* 1. Add the correct box sizing in Firefox.
+   2. Show the overflow in Edge and IE. */
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/* Add the correct display in IE 10. */
+[hidden] {
+  display: none !important;
+}
+
+/* Style header fonts */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1, .h1 {
+  font-size: 2.5rem;
+}
+
+h2, .h2 {
+  font-size: 2rem;
+}
+
+h3, .h3 {
+  font-size: 1.75rem;
+}
+
+h4, .h4 {
+  font-size: 1.5rem;
+}
+
+h5, .h5 {
+  font-size: 1.25rem;
+}
+
+h6, .h6 {
+  font-size: 1rem;
+}
+
+/* Style lead font */
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+
+/********************************/
+/*                              */
+/*    EXOTIC CAR CLUB STYLES    */
+/*                              */
+/********************************/
+
+
+.barba-container {
+  position: relative;
+}
+
+.fullpage-wrapper {
+ /* margin-right: -15px;
+  margin-left: -15px;*/
+}
+/*
+header {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+header h1 {
+  position: absolute;
+  width: 90%;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  transform: translate(-50%, -50%);
+}*/
+
+.fleet-vehicle {
+  display: inline-block;
+  position: relative;
+  height: 45vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.fleet-vehicle:after, .fleet-vehicle:before {
+    position: absolute;
+    opacity: 1;
+    transition: all 0.5s;
+}
+.fleet-vehicle:after {
+    content: '\A';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+}
+.fleet-vehicle:before {
+    content: attr(data-content);
+    width: 100%;
+    font-family: 'Open Sans', Arial;
+    font-size: 4em;
+    color: var(--color-black);
+    bottom: 0;
+    opacity: 1;
+    z-index: 1;
+    text-align: center;
+    box-sizing: border-box;
+}
+.fleet-vehicle:hover:after, .fleet-vehicle:hover:before,
+.fleet-vehicle:focus:after, .fleet-vehicle:focus:before,
+.fleet-vehicle:active:after, .fleet-vehicle:active:before {
+    opacity: 0;
+}
+
+.fleet-vehicle h1 {
+  position: absolute;
+  width: 90%;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  transform: translate(-50%, -50%);
+}
+
+/*
+p {
+  margin: 15px auto;
+  width: 90%;
+  max-width: 600px;
+  line-height: 1.7;
+}*/
+
+a.nav {
+  font-family: 'Source Sans Pro', serif;
+  display: block;
+  position: fixed;
+  text-decoration: none;
+  top: 25vh;
+  background: #555;
+  color: #fff;
+  padding: 10px;
+  z-index: 99;
+}
+
+a.nav.next {
+  right: 0;
+}
+
+a.nav.prev {
+  left: 0;
+}
+
+/*
+    SCREEN WIPE
+    Used for transitions between fleet vehicles 
+*/
+.screen-wipe-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background: var(--color-ecc);
+    transform:scaleX(0);
+    z-index: 1000;
+}
+.screen-wipe-front {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background: var(--color-black);
+    transform:scaleX(0);
+    z-index: 1001;
+}
+.screen-wipe-logo {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%,-50%);
+  opacity: 0;
+  z-index: 1002;
+}
+
+.logo__color {
+    fill: var(--color-ecc);
+    transition: fill 0.3s;
+}
+
+
+/*
+    VEHICLE HERO
+*/
+
+/*.vehicle__hero {
+  min-height: var(--media-height);
+  overflow: hidden;
+  position: relative;
+}*/
+
+/*.vehicle__image img {*/
+.vehicle__image {
+  display: block;
+  height: var(--media-height);
+  max-height: var(--media-height);
+  min-height: var(--media-height);
+  max-width: none;
+  object-fit: cover;
+  width: 100%;
+}
+
+.vehicle__info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: var(--color-white);
+}
+
+.vehicle__title {
+  padding: 1rem;
+  text-align: center;
+  background-color: rgba(0,0,0,.25);
+}
+
+.vehicle__title h1 {
+  font-weight: 700;
+}
+
+.vehicle__details {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(0,0,0,.25);
+}
+
+.vehicle__details__item {
+  flex-basis: 175px;
+  padding: .5rem;  
+  border-left: 2px solid var(--color-white);
+}
+.vehicle__details__item:first-child {
+  border-left: 0;
+}
+
+.vehicle__details__item span {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+
+.hero__arrow {
+  text-align: center;
+  background-color: rgba(0,0,0,.25);
+  padding: .5rem;
+}
+
+.hero__arrow__down {
+  border: solid var(--color-white);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 7px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  animation-name: arrow-keyframe--bounce;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes arrow-keyframe--bounce {
+  0%, 20%, 50%, 80%, 100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0) rotate(45deg);
+  }
+  40% {
+      -webkit-transform: translateY(5px);
+      transform: translateY(5px) rotate(45deg);
+  }
+  60% {
+      -webkit-transform: translateY(3px);
+      transform: translateY(3px) rotate(45deg);
+  }
+}
+
+
+@media (max-width: 767px) {
+  .mobile__hidden {
+    display: none !important;
+  }
+}
+
+/*
+    ACCELERATION = SPEEDOMETER + DIGITS
+*/
+
+.acceleration {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+}
+
+.acceleration__caption {
+  grid-column: span 2;
+  align-self: end;
+}
+
+
+/*
+    SPEEDOMETER
+*/
+
+.acceleration__speedometer {
+  justify-self: end;
+  align-self: center;
+  position: relative;
+  height: 27px;
+  margin-top: 7px;
+  margin-right: 5px;
+  transform: scale(var(--cmp-speedometer-scale));
+  width: 44px;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NSIgaGVpZ2h0PSI1MSI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNOTQuOTkyIDQ4LjExNGE0Ny4wNTEgNDcuMDUxIDAgMDAtMTIuMTU3LTMxLjU3OGwtMS42ODItMS44NzJDNjIuNzA5LTMuODg5IDMyLjY4LTQuMDEyIDE0LjA4NSAxNC4zOUE0Ny4yNTUgNDcuMjU1IDAgMDAuMDU3IDQ4LjE5N3YyLjc5Nmg5LjI3MXYtMi43OTZoLTMuNjRBNDEuNTEyIDQxLjUxMiAwIDAxMTYuMzYgMjAuNDIxbDIuODAzIDIuNTQyIDEuODQ3LTIuMDk2LTIuODAxLTIuNDg4QTQxLjcwMiA0MS43MDIgMCAwMTQ2LjIyMiA2LjQ3NXY1LjMzN2gyLjgwMlY2LjM2M2E0MS43NDYgNDEuNzQ2IDAgMDEyOC4wMTEgMTEuOTg5bC0yLjc5OSAyLjM3NSAxLjg0NyAyLjA5NiAyLjgwMS0yLjQzYTQxLjQ5OCA0MS40OTggMCAwMTEwLjU5IDI3LjY2NmgtMy43NTV2Mi43OTRoOS4yNzN2LTIuNzM5eiIvPjwvc3ZnPg==");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  filter: invert(1);
+}
+
+/*
+    SPEEDOMETER CIRCLE
+*/
+
+.acceleration__speedometer__circle {
+  bottom: 3.5px;
+  height: 15.5px;
+  left: 7px;
+  overflow: hidden;
+  position: absolute;
+  width: 30px;
+}
+
+/*
+    SPEEDOMETER INNER CIRCLE
+*/
+
+.acceleration__speedometer__circle__inner {
+  height: 15.5px;
+  width: 30px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background-color: rgba(0,0,0,0.35);
+  transform: translateZ(0) rotate(-180deg);
+  transform-origin: 50% 95% 0;
+  transition: var(--cmp-speedometer-transition-property) var(--cmp-speedometer-duration) var(--cmp-speedometer-transition-timing-function);
+}
+
+.acceleration__speedometer__circle__inner.animate {
+  transform: translateZ(0) rotate(0);
+}
+
+/*
+    SPEEDOMETER NEEDLE
+*/
+
+.acceleration__speedometer__needle {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIzOCI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNOS42MTYgMzIuOTI5YzAgLjAzMy4wMDQuMDY1LjAwNC4wOThhNC4xNzIgNC4xNzIgMCAwMS0uNjI0IDIuMTI4IDQuMjcyIDQuMjcyIDAgMDEtLjkxOSAxLjEyM2MtLjcwNS42MDQtMS41NzguOTMtMi41NDguOTg1YTQuOTI1IDQuOTI1IDAgMDEtLjQ3My4wMTdjLS4wOTYtLjAwMS0uMTkxLS4wMTEtLjI4Ni0uMDE4YTQuNjMyIDQuNjMyIDAgMDEtMS4xMDctLjIxOCA0LjUyMyA0LjUyMyAwIDAxLTEuMDg0LS40ODcgNC4wNDggNC4wNDggMCAwMS0xLjcyLTIuMjM4IDQuMTU2IDQuMTU2IDAgMDEtLjIzMy0xLjQyN2MwLS4wMi4wMDMtLjA0LjAwNC0uMDYtLjAwMS0uMDYxLS4wMDgtLjExOS0uMDA2LS4xODEgMC0uMDM3LjAwMi0uMDczLjAwNi0uMTA5TDMuNzc3IDEuNTFDMy44NDguNzk3IDQuNDc0LjI1NSA1LjIyLjI1OGMuNzQ0LjAwMiAxLjM2OC41NTEgMS40MzcgMS4yNjVsMi45NjEgMzEuMTU1Yy4wMDYuMDUyLjAwNi4xMDQuMDA1LjE1NS0uMDAxLjAzMy0uMDA2LjA2NC0uMDA3LjA5NnoiLz48L3N2Zz4=");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  bottom: 2px;
+  height: 17px;
+  left: 20px;
+  position: absolute;
+  width: 4.5px;
+  transform: translateZ(0) rotate(-90deg);
+  transform-origin: 50% 15px 0;
+  transition: var(--cmp-speedometer-transition-property) var(--cmp-speedometer-duration) var(--cmp-speedometer-transition-timing-function);
+}
+
+.acceleration__speedometer__needle.animate {
+  transform: translateZ(0) rotate(90deg);
+}
+
+/*
+    SPEEDOMETER DIGITS
+*/
+
+.acceleration__speedometer__numbers {
+  justify-self: start;
+  display: flex;
+  height: 36px;
+  height: var(--tds-line_height--large);
+  overflow: hidden;
+}
+
+.acceleration__speedometer__numbers > * {
+  font-size: 1.67em;
+}
+
+.acceleration__speedometer__numbers__digit {
+  /*font-weight: 700;*/
+  align-self: flex-start;
+  transition: var(--cmp-speedometer-transition-property) var(--cmp-speedometer-duration) var(--cmp-speedometer-numbers-transition-timing-function);
+}
+
+.acceleration__speedometer__numbers__digit.animate {
+  transform: translateY(0) translateZ(0);
+  transform: translateY(var(--cmp-speedometer-fractional-translation)) translateZ(0);
+}
+
+.acceleration__speedometer__numbers__digit:first-child.animate {
+  transform: translateY(0) translateZ(0);
+  transform: translateY(var(--cmp-speedometer-integer-translation)) translateZ(0);
+}
+
+
+.vehicle__section__img {
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.vehicle__section__text {
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .vehicle__section__v1 {
+    display: flex;
+  }
+
+  .vehicle__section__img {
+    flex: 2;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .vehicle__section__text {
+    flex: 1;
+    margin: auto;
+    text-align: center;
+  }
+}
+
+
+/*
+    SLIDESHOW
+*/
+
+.slideshow { 
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  transition: .5s;
+}
+
+/* Set all slides as absolute positioning so they will stack on top of each other, and hidden from one another */
+
+.slideshow__slide { 
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transition: .5s;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+}
+
+.slideshow__slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slideshow__slide > img {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .slideshow,
+  .slideshow__slide > img { 
+    height: 100vh;
+  }
+  .slideshow__slide > img {
+    object-fit: cover;
+  }
+}
+
+/* Set up our basic left/right navigation */
+
+.slideshow__nav { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  z-index: 100;
+}
+
+.slideshow__nav > li {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 100%;
+  color: #ccc;
+  font-size: 2rem;
+  padding: 1rem;
+  transition: all .3s;
+}
+
+.slideshow__nav > li:hover {
+  color: #eee;
+  background-color: rgba(255,255,255,.1);
+}
+
+
+
+
+.swipe {
+  display: flex;
+  /*overflow: hidden;*/
+}
+
+.swipe > * {
+  flex: 1;
+  cursor: pointer;
+  position: relative;
+  border-top: 4px solid var(--color-ecc);
+  border-bottom: 4px solid var(--color-ecc);
+}
+
+.swipe__bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  opacity: 0;
+  transition: all 1s; /*cubic-bezier(0.61, -0.19, 0.7, -0.11);*/
+}
+.swipe__overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;*/
+  background-color: var(--color-black);
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  transition: all 1s; /*cubic-bezier(0.61, -0.19, 0.7, -0.11);*/
+}
+
+.swipe__left {
+  border-right: 2px solid var(--color-ecc);
+}
+.swipe__right {
+  border-left: 2px solid var(--color-ecc);
+}
+
+.swipe__overlay__text {
+  text-align: center;
+  color: var(--color-white);
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 1rem ;
+  text-shadow: 0 0 4px rgba(0, 0, 0, .72), 0 0 14px rgba(0, 0, 0, .45);
+  transition: all 1s; /*cubic-bezier(0.61, -0.19, 0.7, -0.11);*/
+}
+.swipe__overlay__text > span {
+  color: var(--color-ecc);
+}
+
+.swipe__left:hover > .swipe__bg,
+.swipe__right:hover > .swipe__bg {
+  opacity: 1;
+}
+
+.swipe__left:hover > .swipe__overlay,
+.swipe__right:hover > .swipe__overlay {
+  opacity: 0;
+}
+
+.swipe__left:hover > .swipe__overlay .swipe__overlay__text,
+.swipe__right:hover > .swipe__overlay .swipe__overlay__text {
+  scale: .9;
+}
+
+
+@media (min-width: 768px) {
+  .swipe {
+    min-height: 100vh;
+  }
+  .swipe__overlay__text {
+    font-size: 2rem;
+  }
+}
+
